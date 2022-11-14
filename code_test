@@ -1,0 +1,6 @@
+    fiter_lambda = list(filter_data(value, data))
+    map_lambda = list(map_data(value, fiter_lambda))
+    unique_lambda = list(unique_data(map_lambda))
+    sort_lambda = sort_data(params='desc', data=unique_lambda)
+    limit_lambda = limit_data(params=value, data=sort_lambda)
+    regexp_lambda = list(regexp_data(value,))
