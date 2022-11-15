@@ -1,4 +1,4 @@
-from typing import Generator
+from typing import Generator, Iterable, Dict, List
 
 from functions import filter_data, map_data, unique_data, sort_data, limit_data, regexp_data
 
@@ -21,14 +21,12 @@ def read_file(filename: str) -> Generator:
             yield line
 
 
-def query_params(cmd1, value1, cmd2, value2, data):
+def query_params(cmd1: int, value1: str, cmd2: int, value2: str, data: Iterable[str]) -> Dict[str, List[str]]:
     pre_data = read_file(FILE)
     if cmd2:
-        a: dict = params_dict[cmd1](params=value1, data=pre_data)
-        res: dict = params_dict[cmd2](params=value2, data=a)
+        a_1: dict = params_dict[cmd1](params=value1, data=pre_data)
+        res: dict = params_dict[cmd2](params=value2, data=a_1)
         return res
     else:
-        a: dict = params_dict[cmd1](params=value1, data=pre_data)
-        return a
-
-
+        a_2: dict = params_dict[cmd1](params=value1, data=pre_data)
+        return a_2

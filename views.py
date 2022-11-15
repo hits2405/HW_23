@@ -1,3 +1,5 @@
+from typing import Iterable
+
 from flask import request, jsonify, Blueprint
 from marshmallow import ValidationError
 
@@ -20,7 +22,7 @@ def perform_query():
     except ValidationError as error:
         return jsonify(error.messages), 400
 
-    result = None
+    result = Iterable[str]
 
     result = query_params(
         cmd1=cmd1,
@@ -30,6 +32,3 @@ def perform_query():
         data=result,
         )
     return jsonify(result), 200
-
-
-

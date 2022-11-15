@@ -11,7 +11,7 @@ def map_data(params: str, data: Iterable[str]) -> List[str]:
     return list(map(lambda x: x.split(' ')[column], data))
 
 
-def unique_data(data: Iterable[str], *args, **kwargs) -> Set[str]:
+def unique_data(data: Iterable[str]) -> Set[str]:
     return set(data)
 
 
@@ -23,6 +23,7 @@ def limit_data(params: str, data: Iterable[str]) -> List[str]:
     limit = int(params)
     data = list(data)
     return data[:limit]
+
 
 def regexp_data(params: str, data: Iterable[str]) -> List[str]:
     data_str = list(data)
